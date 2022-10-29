@@ -8,11 +8,17 @@ import Pages.LoginPage;
 
 public class EditCLead extends PageLoginClose{
 	
-	@Test
-	public void Run2() throws InterruptedException {
+	@BeforeTest @BeforeClass
+	public void getExcelData() {
+		Filename="Editlead";
+	}
+	
+	
+	@Test(dataProvider="fetchdata")
+	public void Run2(String companyname) throws InterruptedException {
 		
-		new LoginPage(driver).enterUserName().enterPassword().clickLogin().clickCrmsfa().clickLeads()
-		.clickFindLead().clickPhonetab().enterPhoneNumber().searchFindLead().clickFirsLeadId().clickEdit().updateCompanyName().clickSubmitButton();
+	new LoginPage(driver).enterUserName().enterPassword().clickLogin().clickCrmsfa().clickLeads()
+	.clickFindLead().clickPhonetab().enterPhoneNumber().searchFindLead().clickFirsLeadId().clickEdit().updateCompanyName(companyname).clickSubmitButton();
 	}
 
 }
