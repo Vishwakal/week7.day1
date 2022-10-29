@@ -13,29 +13,28 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PageLoginClose {
 	
-	Set<String> allWindows = null;
-	List<String> allhandles = null;
-	String leadId=null;
-	Set<String> allWindows2 = null;
-	List<String> allhandles2 = null;
-
-
-	public EdgeDriver driver;
-
-	@BeforeMethod
-	public void preCondition(){
-		WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();
+	public String Filename;
+	
+	public static ChromeDriver driver;
+    @BeforeMethod
+	public void login() {
+		ChromeOptions ch=new ChromeOptions();
+		ch.addArguments("--disable-notifications");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://leaftaps.com/opentaps/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));		
-
-	}
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+    
 	@AfterMethod
-	public void postCondition(){
+	public void postCondition() {
 		driver.close();
 	}
-
-
-}
+	
+	@DataProvider(name="fetchdata")
+		public String[][] excel() throws IOException{
+		return ExcelData.readSheetData(Filename);
+		}
+		
+	}
