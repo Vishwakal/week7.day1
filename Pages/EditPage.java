@@ -11,8 +11,8 @@ public class EditPage  extends PageLoginClose{
 		this.driver=driver;
 	}
 	
-	public EditPage updateCompanyName() {
-		driver.findElement(By.id("updateLeadForm_companyName")).sendKeys("TCS");
+	public EditPage updateCompanyName(String companyname) {
+		driver.findElement(By.id("updateLeadForm_companyName")).sendKeys(companyname);
 		return this;
 	}
 	
