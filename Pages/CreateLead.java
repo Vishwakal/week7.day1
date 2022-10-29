@@ -12,18 +12,18 @@ public class CreateLead extends PageLoginClose{
 	}
 
 
-	public CreateLead enterCompanyName() {
-		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("TestLeaf");
+	public CreateLead enterCompanyName(String companyname) {
+		driver.findElement(By.id("createLeadForm_companyName")).sendKeys(companyname);
 		return this;
 
 	}
 
-	public CreateLead enterFirstName() {
-		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Hari");
+	public CreateLead enterFirstName(String Firstname ){
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys(Firstname);
 		return this;
 	}
-	public CreateLead enterLastName() {
-		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("R");
+	public CreateLead enterLastName(String Lastname) {
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys(Lastname);
 		return this;
 	}
 
@@ -31,4 +31,3 @@ public class CreateLead extends PageLoginClose{
 		driver.findElement(By.name("submitButton")).click();
 		return this;
 	}
-}
