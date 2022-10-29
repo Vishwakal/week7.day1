@@ -7,12 +7,20 @@ import Pages.LoginPage;
 
 public class TestCaseCreateLead extends PageLoginClose{
 	
-	@Test
-	public void runTestcase() {
+	
+	
+	@BeforeTest @BeforeClass
+	public void getExcelData() {
+		Filename="Creatlead";
+	}
+	
+	
+	@Test(dataProvider="fetchdata")
+	public void runTestcase( String companyname,String Firstname,String Lastname) {
 		
 		new LoginPage(driver).enterUserName().enterPassword().clickLogin()
-		.clickCrmsfa().clickLeads().clickCreateLead().enterCompanyName()
-		.enterFirstName().enterLastName().clickFinish();;
+		.clickCrmsfa().clickLeads().clickCreateLead().enterCompanyName(companyname)
+		.enterFirstName(Firstname).enterLastName(Lastname).clickFinish();;
  
 }
 }
